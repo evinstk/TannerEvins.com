@@ -33,7 +33,7 @@ gulp.task('default', () => {
             .pipe(gulp.dest('./public/'))
     })
 
-    tasks.concat(() => {
+    tasks = tasks.concat(() => {
     return gulp.src('./scss/**/*.scss')
         .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest('./public/css'))
@@ -42,11 +42,9 @@ gulp.task('default', () => {
     es.merge.apply(null, tasks)
 })
 
-//gulp.task('sass', )
-
 const watcher = gulp.watch([
-	'src/routes.js',
-	'src/app.js',
+    'src/routes.js',
+    'src/app.js',
     'src/containers/*.js',
     'src/components/*.js',
     'src/reducers/*.js',

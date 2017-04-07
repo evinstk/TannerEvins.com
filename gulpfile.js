@@ -6,13 +6,14 @@ const buffer     = require('vinyl-buffer')
 const sourcemaps = require('gulp-sourcemaps')
 const es         = require('event-stream')
 const gutil      = require('gulp-util')
+const sass       = require('gulp-sass')
 
 gulp.task('default', () => {
     const files = [
         'app.js'
     ]
 
-    var tasks = files.map(entry => {
+    let tasks = files.map(entry => {
         const b = browserify({
             entries: './src/' + entry,
             debug: true,
@@ -32,13 +33,22 @@ gulp.task('default', () => {
             .pipe(gulp.dest('./public/'))
     })
 
+    tasks.concat(() => {
+    return gulp.src('./scss/**/*.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('./public/css'))
+    })
+
     es.merge.apply(null, tasks)
 })
+
+//gulp.task('sass', )
 
 const watcher = gulp.watch([
 	'src/routes.js',
 	'src/app.js',
     'src/containers/*.js',
     'src/reducers/*.js',
-    'src/store/*.js'
+    'src/store/*.js',
+    'scss/**/*.scss'
 ], ['default'])

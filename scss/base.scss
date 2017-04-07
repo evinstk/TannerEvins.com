@@ -1,0 +1,38 @@
+$font-stack: Helvetica, sans-serif;
+
+$text-color: #555;
+$text-color-bold: #333;
+
+//$primary-color: #404e5c;
+//$secondary-color: #c95d63;
+$primary-color: #c95d63;
+$secondary-color: #404e5c;
+$tertiary-color: #9da9a0;
+$four-color: #654c4f;
+$five-color: #cec075;
+
+@font-face {
+	font-family: Harry;
+	src: url("../fonts/harry-plain.otf")
+}
+
+body {
+	font: 100% $font-stack;
+	color: $text-color;
+	margin: 0 auto;
+	max-width: 50em;
+	line-height: 1.5;
+	padding: 4em 1em;
+}
+
+h1, h2 {
+	font-family: Harry, $font-stack;
+}
+
+h1, h2, strong {
+	color: $text-color-bold;
+}
+
+a {
+	color: $primary-color;
+}

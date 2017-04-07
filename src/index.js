@@ -2,12 +2,14 @@
 
 const express = require('express')
 const path = require('path')
+const favicon = require('serve-favicon')
 
 const DEV_PORT = 3000
 const PUBLIC = path.join(__dirname, '..', 'public')
 
 const app = express()
 app.set('view engine', 'pug')
+app.use(favicon(path.join(PUBLIC, 'favicon.ico')))
 app.use(express.static(PUBLIC))
 
 const viewRoutes = ['/']

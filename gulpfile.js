@@ -48,6 +48,7 @@ const watcher = gulp.watch([
 	'src/routes.js',
 	'src/app.js',
     'src/containers/*.js',
+    'src/components/*.js',
     'src/reducers/*.js',
     'src/store/*.js',
     'scss/**/*.scss'

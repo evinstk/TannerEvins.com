@@ -1,6 +1,5 @@
 import React from 'react'
 import { Route } from 'react-router'
-
-const App = () => <div></div>
+import App from './components/App'
 
 export default <Route path="/" component={App}></Route>

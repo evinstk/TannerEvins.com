@@ -12,7 +12,7 @@ app.set('view engine', 'pug')
 app.use(favicon(path.join(PUBLIC, 'favicon.ico')))
 app.use(express.static(PUBLIC))
 
-const viewRoutes = ['/']
+const viewRoutes = ['/', '/resume']
 viewRoutes.forEach(route => {
     app.get(route, (req, res) => {
         res.render('index')

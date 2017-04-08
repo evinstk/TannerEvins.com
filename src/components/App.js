@@ -1,4 +1,5 @@
 import React from 'react'
+import Nav from '../containers/Nav'
 
 const Welcome = <p>
   Welcome. My site is currently under construction. To
@@ -9,6 +10,7 @@ const Welcome = <p>
 const App = ({ children }) => (
     <div>
         <h1>tannerevins.com</h1>
+        <Nav />
         <div>{children || Welcome}</div>
     </div>
 )

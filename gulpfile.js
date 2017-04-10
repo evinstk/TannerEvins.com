@@ -42,12 +42,14 @@ gulp.task('sass', () => {
         .pipe(gulp.dest('./public/css'))
 })
 
-const watcher = gulp.watch([
-    'src/routes.js',
-    'src/app.js',
-    'src/containers/*.js',
-    'src/components/*.js',
-    'src/reducers/*.js',
-    'src/store/*.js',
-    'scss/**/*.scss'
-], ['default'])
+gulp.task('watch-all', () => {
+    gulp.watch([
+        'src/routes.js',
+        'src/app.js',
+        'src/containers/*.js',
+        'src/components/*.js',
+        'src/reducers/*.js',
+        'src/store/*.js'
+    ], ['default'])
+    gulp.watch('./scss/**/*.scss', ['sass']);
+});

@@ -34,7 +34,7 @@ const software = [
 const mapLi = arr => arr.map((item, index) => <li key={index}>{item}</li>)
 
 const Resume = () => (
-  <div>
+  <div className="resume">
     <div>Tanner Evins</div>
     <div>
       <div className="section">languages</div>

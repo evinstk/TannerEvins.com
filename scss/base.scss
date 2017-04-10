@@ -1,3 +1,5 @@
+@import 'reset';
+
 $font-stack: Helvetica, sans-serif;
 
 $text-color: #555;
@@ -11,6 +13,9 @@ $tertiary-color: #9da9a0;
 $four-color: #654c4f;
 $five-color: #cec075;
 
+$shadow-color: #555;
+$hover-color: #eee;
+
 @font-face {
 	font-family: Harry;
 	src: url("../fonts/harry-plain.otf")
@@ -19,14 +24,13 @@ $five-color: #cec075;
 body {
 	font: 100% $font-stack;
 	color: $text-color;
+}
+
+.main-content {
 	margin: 0 auto;
 	max-width: 50em;
 	line-height: 1.5;
 	padding: 4em 1em;
-}
-
-h1, h2 {
-	font-family: Harry, $font-stack;
 }
 
 h1, h2, strong {
@@ -37,8 +41,9 @@ a {
 	color: $primary-color;
 }
 
-.section {
-    color: $primary-color;
-    font-variant: small-caps;
-    font-weight: bold;
+ul {
+    list-style-type: none;
 }
+
+@import 'banner';
+@import 'resume';

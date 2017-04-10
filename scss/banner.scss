@@ -1,0 +1,28 @@
+.banner {
+    padding: 0 20px;
+    box-shadow: 0 1px 10px $shadow-color;
+
+    div, ul, li, a {
+        display: inline-block;
+    }
+
+    .header {
+        font-family: Harry, $font-stack;
+        font-size: 2em;
+        font-weight: bold;
+        color: $text-color-bold;
+    }
+}
+
+.nav {
+    padding-left: 200px;
+
+    a {
+        text-decoration: none;
+        padding: 20px;
+    }
+
+    a:hover {
+        background: $hover-color;
+    }
+}

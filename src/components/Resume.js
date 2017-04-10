@@ -1,4 +1,5 @@
 import React from 'react'
+import Section from './CollapsibleSection'
 
 const languages = [
     'JavaScript (ECMAScript 6)',
@@ -35,12 +36,10 @@ const mapLi = arr => arr.map((item, index) => <li key={index}>{item}</li>)
 
 const Resume = () => (
   <div className="resume">
-    <div>Tanner Evins</div>
+    <div className="name">Tanner Evins</div>
     <div>
-      <div className="section">languages</div>
-      <ul>{mapLi(languages)}</ul>
-      <div className="section">software</div>
-      <ul>{mapLi(software)}</ul>
+      <Section title="languages">{mapLi(languages)}</Section>
+      <Section title="software">{mapLi(software)}</Section>
     </div>
   </div>
 )

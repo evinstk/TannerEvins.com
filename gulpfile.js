@@ -37,7 +37,7 @@ gulp.task('default', () => {
 })
 
 gulp.task('sass', () => {
-    return gulp.src('./scss/**/*.scss')
+    return gulp.src('./scss/base.scss')
         .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest('./public/css'))
 })

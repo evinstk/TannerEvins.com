@@ -19,7 +19,7 @@ class CollapsibleSection extends Component {
         return (
           <div className="collapsible-section">
             <div className="title" onClick={this.toggle}>{title}</div>
-            {!isCollapsed && <ul>{children}</ul>}
+            {!isCollapsed && <ul className="content">{children}</ul>}
           </div>
         )
     }

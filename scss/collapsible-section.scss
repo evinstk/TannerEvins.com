@@ -8,4 +8,20 @@
         cursor: pointer
     }
 
+    .content {
+        animation: slidein 0.2s ease 1;
+    }
+
+    @keyframes slidein {
+        from {
+            margin-left: 10px;
+            opacity: 0;
+        }
+
+        to {
+            margin-left: 0;
+            opacity: 1;
+        }
+    }
+
 }

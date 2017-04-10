@@ -128,6 +128,30 @@ const defaultState = {
                 name: 'Visual Studio',
                 known: true
             }
+        },
+        companies: {
+            1: {
+                key: 1,
+                name: 'ECS Federal, Inc.'
+            },
+            2: {
+                key: 2,
+                name: 'Exponent Technologies'
+            }
+        },
+        experience: {
+            1: {
+                key: 1,
+                company: 1,
+                start: new Date(2013, 0),
+                end: new Date(2015, 8)
+            },
+            2: {
+                key: 2,
+                company: 2,
+                start: new Date(2015, 8),
+                end: null
+            }
         }
     }
 }

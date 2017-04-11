@@ -1,8 +1,8 @@
 'use strict'
 
-const express = require('express')
-const path = require('path')
-const favicon = require('serve-favicon')
+import express from 'express'
+import path from 'path'
+import favicon from 'serve-favicon'
 
 const DEV_PORT = 3000
 const PUBLIC = path.join(__dirname, '..', 'public')

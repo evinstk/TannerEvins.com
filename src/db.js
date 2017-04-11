@@ -72,7 +72,7 @@ const insertCompanies = db => {
     ]
 
     return new Promise((fulfill, reject) => {
-        db.collection('companies').insertMany((err, res) => {
+        db.collection('companies').insertMany(docs, (err, res) => {
             if (err) {
                 reject(err)
             } else {
@@ -90,7 +90,7 @@ const insertExperience = db => {
     ]
 
     return new Promise((fulfill, reject) => {
-        db.collection('experience').insertMany((err, res) => {
+        db.collection('experience').insertMany(docs, (err, res) => {
             if (err) {
                 reject(err)
             } else {

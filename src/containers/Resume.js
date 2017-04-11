@@ -14,7 +14,8 @@ const Experience = ({ exp, company }) => {
         throw new Error('Non-matching experience and company records.')
     }
 
-    const { start, end } = exp
+    const start = new Date(exp.start)
+    const end = exp.end ? new Date(exp.end) : exp.end
 
     const startMonth = start.getMonth() + 1
     const startYear = start.getFullYear()

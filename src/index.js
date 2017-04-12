@@ -32,6 +32,7 @@ viewRoutes.forEach(route => {
                     findCompanies(db),
                     findExperience(db)
                 ]).then(([languages, software, companies, experience]) => {
+                    db.close()
                     const store = createStore(rootReducer, {
                         entities: {
                             languages,

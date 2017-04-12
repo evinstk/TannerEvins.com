@@ -51,7 +51,8 @@ viewRoutes.forEach(route => {
                 })
             }, (err) => {
                 res.status(500)
-                res.send(err)
+                console.error(err)
+                res.send('An error occurred on the server.')
             })
         })
     })

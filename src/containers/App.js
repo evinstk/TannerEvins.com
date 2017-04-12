@@ -13,8 +13,9 @@ const Welcome = () => (
         <div className="site-name">TannerEvins.com</div>
         <div className="description">Front-end & UX</div>
         <div className="social">
-          <SocialIcon url="https://www.linkedin.com/in/tanner-evins-30770741/" />
-          <SocialIcon url="https://www.facebook.com/tanner.evins.3" />
+          <SocialIcon color="#888" url="https://www.linkedin.com/in/tanner-evins-30770741/" />
+          <SocialIcon color="#888" url="https://github.com/evinstk" />
+          <SocialIcon color="#888" url="https://www.facebook.com/tanner.evins.3" />
         </div>
       </div>
     </div>

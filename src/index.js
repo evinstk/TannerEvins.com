@@ -48,6 +48,9 @@ viewRoutes.forEach(route => {
                     )
                     res.send(renderPage(html, state))
                 })
+            }, (err) => {
+                res.status(500)
+                res.send(err)
             })
         })
     })

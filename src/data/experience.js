@@ -4,15 +4,15 @@ export default [
         company: 'ecs',
         location: 'Memphis, TN',
         position: 'Front-end Developer',
-        start: new Date(2013, 0),
-        end: new Date(2015, 8)
+        start: new Date(2013, 1),
+        end: new Date(2015, 9)
     },
     {
         _id: 'exp',
         company: 'exp',
         location: 'Dallas, TX',
         position: 'IT Developer',
-        start: new Date(2015, 8),
+        start: new Date(2015, 9),
         end: null
     }
 ]

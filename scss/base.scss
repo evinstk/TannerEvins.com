@@ -45,6 +45,11 @@ ul {
     list-style-type: none;
 }
 
+.center {
+    text-align: center;
+}
+
 @import 'banner';
+@import 'welcome';
 @import 'resume';
 @import 'collapsible-section';

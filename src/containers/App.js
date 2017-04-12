@@ -3,12 +3,17 @@ import Banner from '../components/Banner'
 import { connect } from 'react-redux'
 
 const Welcome = () => (
-  <p>
-    Welcome. My site is currently under construction. To
-    get in contact with me for web development services,
-    see <a href="https://www.linkedin.com/in/tanner-evins-30770741">my
-    LinkedIn profile</a>.
-  </p>
+  <div className="welcome">
+    <div className="content">
+      <div className="center">
+        <img src="/apple-touch-icon.png" />
+      </div>
+      <div className="center">
+        <div className="site-name">TannerEvins.com</div>
+        <div className="description">Front-end & UX</div>
+      </div>
+    </div>
+  </div>
 )
 
 const ServerErrorMessage = () => (

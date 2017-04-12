@@ -1,0 +1,41 @@
+.welcome {
+    height: 60vh;
+    display: grid;
+    justify-items: stretch;
+    align-items: center;
+    animation: fadein 0.5s ease 1;
+
+    @keyframes fadein {
+        from {
+            opacity: 0;
+            transform: translateY(1rem);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .site-name {
+        text-transform: lowercase;
+        font-variant: small-caps;
+        font-size: 4rem;
+    }
+
+    .description {
+        font-variant: small-caps;
+        font-size: 2rem;
+    }
+}
+//.welcome {
+//    height: 80vh;
+//    display: grid;
+//    grid-template-rows: auto;
+//    //flex-direction: column;
+//    //align-items: flex-center;
+//}

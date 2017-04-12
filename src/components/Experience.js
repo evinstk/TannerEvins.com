@@ -19,10 +19,14 @@ const Experience = ({ exp, company, points }) => {
     }
 
     return (
-      <div>
-        <div>{company.name}</div>
-        <div>{startMonth}/{startYear} &ndash; {end ? endMonth+'/'+endYear : 'Present'}</div>
-        {map(p => <div key={p._id}>{p.point}</div>)(points)}
+      <div className="experience">
+        <div className="full-position"><span className="position">{exp.position}</span> at {company.name}</div>
+        <div className="years">
+          {startMonth}/{startYear} &ndash; {end ? endMonth+'/'+endYear : 'Present'}
+        </div>
+        <div className="points">
+          {map(p => <div className="point" key={p._id}>{p.point}</div>)(points)}
+        </div>
       </div>
     )
 }

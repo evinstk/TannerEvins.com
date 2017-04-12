@@ -1,5 +1,6 @@
 import React from 'react'
 import ShadowSection from '../components/ShadowSection'
+import Experience from '../components/Experience'
 import { connect } from 'react-redux'
 import filter from 'lodash/fp/filter'
 import map from 'lodash/fp/map'
@@ -8,32 +9,6 @@ import sortBy from 'lodash/fp/sortBy'
 
 const makeSkillLis = flow(filter(l => l.known),
                           map(l => <li key={l._id}>{l.name}</li>))
-
-const Experience = ({ exp, company, points }) => {
-    if (exp.company !== company._id) {
-        throw new Error('Non-matching experience and company records.')
-    }
-
-    const start = new Date(exp.start)
-    const end = exp.end ? new Date(exp.end) : exp.end
-
-    const startMonth = start.getMonth() + 1
-    const startYear = start.getFullYear()
-
-    let endMonth, endYear
-    if (end) {
-        endMonth = end.getMonth() + 1
-        endYear = end.getFullYear()
-    }
-
-    return (
-      <div>
-        <div>{company.name}</div>
-        <div>{startMonth}/{startYear} &ndash; {end ? endMonth+'/'+endYear : 'Present'}</div>
-        {map(p => <div key={p._id}>{p.point}</div>)(points)}
-      </div>
-    )
-}
 
 const Resume = connect(
     ({ entities }) => ({

@@ -3,12 +3,10 @@ import Nav from '../containers/Nav'
 import { Link } from 'react-router'
 
 const Banner = () => (
-  <div className="banner">
-    <Link to='/'>
-      <div className="header">tannerevins.com</div>
-    </Link>
+  <header className="banner">
+    <Link to='/' className="logo">tannerevins.com</Link>
     <Nav />
-  </div>
+  </header>
 )
 
 export default Banner

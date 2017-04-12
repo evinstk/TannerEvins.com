@@ -1,24 +1,28 @@
 .banner {
-    padding: 0 20px;
+    display: flex;
+    align-items: center;
     box-shadow: 0 1px 10px $shadow-color;
-
-    div, ul, li, a {
-        display: inline-block;
-    }
-
-    .header {
-        font-family: Harry, $font-stack;
-        font-size: 2em;
-        font-weight: bold;
-        color: $text-color-bold;
-    }
 }
 
-.nav {
-    padding-left: 200px;
+.logo {
+    text-decoration: none;
+    font-size: 2rem;
+    font-family: Harry, $font-stack;
+    font-weight: bold;
+    color: $text-color-bold;
+    padding: 10px 20px;
+}
+
+.site-nav {
+    margin-left: 200px;
+
+    ul {
+        display: flex;
+    }
 
     a {
         text-decoration: none;
+        display: inline-block;
         padding: 20px;
     }
 

@@ -26,7 +26,7 @@ MongoClient.connect(MONGO_URL, (err, db) => {
         .then(insertMany('software', software))
         .then(insertMany('companies', companies))
         .then(insertMany('experience', experience))
-        .then(insertMany('experience_points', experience))
+        .then(insertMany('experience_points', expPoints))
         .then(db => db.close())
         .catch(err => console.log(err))
 })

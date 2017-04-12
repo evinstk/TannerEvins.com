@@ -33,33 +33,21 @@ viewRoutes.forEach(route => {
                     findExperience(db)
                 ]).then(([languages, software, companies, experience]) => {
                     db.close()
-                    const store = createStore(rootReducer, {
+                    const { html, state } = makeStateAndHTML({
                         entities: {
                             languages,
                             software,
                             companies,
                             experience
                         }
-                    })
-                    const state = store.getState()
-                    const html = renderToString(
-                        <Provider store={store}>
-                          <RouterContext {...props} />
-                        </Provider>
-                    )
+                    }, props)
                     res.send(renderPage(html, state))
                 })
             }, err => {
                 console.error(err)
-                const store = createStore(rootReducer, {
+                const { html, state } = makeStateAndHTML({
                     serverError: 'db'
-                })
-                const state = store.getState()
-                const html = renderToString(
-                    <Provider store={store}>
-                      <RouterContext {...props} />
-                    </Provider>
-                )
+                }, props)
                 res.status(500)
                 res.send(renderPage(html, state))
             })
@@ -95,6 +83,17 @@ const findKnownLanguages = makeFinder('languages')({ known: true })
 const findKnownSoftware = makeFinder('software')({ known: true })
 const findCompanies = makeFinder('companies')()
 const findExperience = makeFinder('experience')()
+
+const makeStateAndHTML = (initialState, matchProps) => {
+    const store = createStore(rootReducer, initialState)
+    const state = store.getState()
+    const html = renderToString(
+        <Provider store={store}>
+          <RouterContext {...matchProps} />
+        </Provider>
+    )
+    return { state, html }
+}
 
 const renderPage = (html, preloadedState) => `
 <!doctype html>

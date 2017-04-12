@@ -10,7 +10,9 @@ import rootReducer from './reducers'
 import { match, RouterContext } from 'react-router'
 import routes from './routes'
 import React from 'react'
-import defaultState from './store/defaultState'
+import { MongoClient } from 'mongodb'
+import { MONGO_URL } from './constants'
+import keyBy from 'lodash/fp/keyBy'
 
 const DEV_PORT = 3000
 const PUBLIC = path.join(__dirname, '..', 'public')
@@ -23,17 +25,62 @@ const viewRoutes = ['/', '/resume']
 viewRoutes.forEach(route => {
     app.get(route, (req, res) => {
         match({ routes, location: req.url }, (err, redirect, props) => {
-            const store = createStore(rootReducer, defaultState)
-            const state = store.getState()
-            const html = renderToString(
-                <Provider store={store}>
-                  <RouterContext {...props} />
-                </Provider>
-            )
-            res.send(renderPage(html, state))
+            connectDB().then(db => {
+                Promise.all([
+                    findKnownLanguages(db),
+                    findKnownSoftware(db),
+                    findCompanies(db),
+                    findExperience(db)
+                ]).then(([languages, software, companies, experience]) => {
+                    const store = createStore(rootReducer, {
+                        entities: {
+                            languages,
+                            software,
+                            companies,
+                            experience
+                        }
+                    })
+                    const state = store.getState()
+                    const html = renderToString(
+                        <Provider store={store}>
+                          <RouterContext {...props} />
+                        </Provider>
+                    )
+                    res.send(renderPage(html, state))
+                })
+            })
         })
     })
 })
+
+const connectDB = () => {
+    return new Promise((fulfill, reject) => {
+        MongoClient.connect(MONGO_URL, (err, db) => {
+            if (err) {
+                reject(err)
+            } else {
+                fulfill(db)
+            }
+        })
+    })
+}
+
+const makeFinder = col => (query = {}) => db => (
+    new Promise((fulfill, reject) => {
+        db.collection(col).find(query).toArray((err, docs) => {
+            if (err) {
+                reject(err)
+            } else {
+                fulfill(keyBy('_id')(docs))
+            }
+        })
+    })
+)
+
+const findKnownLanguages = makeFinder('languages')({ known: true })
+const findKnownSoftware = makeFinder('software')({ known: true })
+const findCompanies = makeFinder('companies')()
+const findExperience = makeFinder('experience')()
 
 const renderPage = (html, preloadedState) => `
 <!doctype html>

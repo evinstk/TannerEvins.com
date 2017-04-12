@@ -50,9 +50,18 @@ viewRoutes.forEach(route => {
                     res.send(renderPage(html, state))
                 })
             }, err => {
-                res.status(500)
                 console.error(err)
-                res.send('An error occurred on the server.')
+                const store = createStore(rootReducer, {
+                    serverError: 'db'
+                })
+                const state = store.getState()
+                const html = renderToString(
+                    <Provider store={store}>
+                      <RouterContext {...props} />
+                    </Provider>
+                )
+                res.status(500)
+                res.send(renderPage(html, state))
             })
         })
     })

@@ -6,8 +6,12 @@ const entities = (state = {
     software: {}
 }, action) => state
 
+// serverError is preloaded if occurred
+const serverError = (state = null) => state
+
 const rootReducer = combineReducers({
     entities,
+    serverError,
     routing
 })
 

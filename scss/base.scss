@@ -49,7 +49,17 @@ ul {
     text-align: center;
 }
 
+.section-title {
+    color: $primary-color;
+    text-transform: lowercase;
+    font-variant: small-caps;
+    font-weight: bold;
+    font-size: 2em;
+    cursor: pointer
+}
+
 @import 'banner';
 @import 'welcome';
 @import 'resume';
 @import 'collapsible-section';
+@import 'shadow-section';

@@ -46,9 +46,9 @@ const Resume = connect(
       <div className="resume">
         <div className="name">Tanner Evins</div>
         <div>
-          <Section title="languages"><ul>{languages}</ul></Section>
-          <Section title="software"><ul>{software}</ul></Section>
-          <Section title="experience"><div>{experiences}</div></Section>
+          <Section title="Languages"><ul>{languages}</ul></Section>
+          <Section title="Software"><ul>{software}</ul></Section>
+          <Section title="Experience"><div>{experiences}</div></Section>
         </div>
       </div>
     )

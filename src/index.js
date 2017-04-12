@@ -32,8 +32,9 @@ viewRoutes.forEach(route => {
                     findCompanies(db),
                     findExperience(db),
                     findExpPoints(db),
-                    findSkills(db)
-                ]).then(([languages, software, companies, experience, expPoints, skills]) => {
+                    findSkills(db),
+                    findHonors(db)
+                ]).then(([languages, software, companies, experience, expPoints, skills, honors]) => {
                     db.close()
                     console.log(expPoints)
                     const { html, state } = makeStateAndHTML({
@@ -43,7 +44,8 @@ viewRoutes.forEach(route => {
                             companies,
                             experience,
                             expPoints,
-                            skills
+                            skills,
+                            honors
                         }
                     }, props)
                     res.send(renderPage(html, state))
@@ -90,6 +92,7 @@ const findCompanies = makeFinder('companies')()
 const findExperience = makeFinder('experience')()
 const findExpPoints = makeFinder('experience_points')()
 const findSkills = makeFinder('skills')()
+const findHonors = makeFinder('honors')()
 
 const makeStateAndHTML = (initialState, matchProps) => {
     const store = createStore(rootReducer, initialState)

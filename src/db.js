@@ -9,19 +9,25 @@ import skills from './data/skills'
 
 const insertMany = (col, docs) => db => {
     return new Promise((fulfill, reject) => {
-        db.collection(col).drop(col, (err) => {
+        db.collection(col, (err, col) => {
             if (err) {
                 reject(err)
-            } else {
-                db.collection(col).insertMany(docs, (err, res) => {
+                return
+            }
+            col.remove({}, err => {
+                if (err) {
+                    reject(err)
+                    return
+                }
+                col.insertMany(docs, (err, res) => {
                     if (err) {
                         reject(err)
-                    } else {
-                        console.log(`Successfully inserted ${docs.length} ${col}.`)
-                        fulfill(db, res)
+                        return
                     }
+                    console.log(`Successfully inserted ${docs.length} ${col}.`)
+                    fulfill(db, res)
                 })
-            }
+            })
         })
     })
 }

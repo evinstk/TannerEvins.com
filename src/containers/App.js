@@ -1,6 +1,7 @@
 import React from 'react'
 import Banner from '../components/Banner'
 import { connect } from 'react-redux'
+import { SocialIcon } from 'react-social-icons'
 
 const Welcome = () => (
   <div className="welcome">
@@ -11,6 +12,10 @@ const Welcome = () => (
       <div className="center">
         <div className="site-name">TannerEvins.com</div>
         <div className="description">Front-end & UX</div>
+        <div className="social">
+          <SocialIcon url="https://www.linkedin.com/in/tanner-evins-30770741/" />
+          <SocialIcon url="https://www.facebook.com/tanner.evins.3" />
+        </div>
       </div>
     </div>
   </div>

@@ -31,6 +31,14 @@
         font-variant: small-caps;
         font-size: 2rem;
     }
+
+    .social {
+        display: flex;
+        justify-content: center;
+        a {
+            margin: 20px;
+        }
+    }
 }
 //.welcome {
 //    height: 80vh;

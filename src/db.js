@@ -5,15 +5,22 @@ import software from './data/software'
 import companies from './data/companies'
 import experience from './data/experience'
 import expPoints from './data/experience-points'
+import skills from './data/skills'
 
 const insertMany = (col, docs) => db => {
     return new Promise((fulfill, reject) => {
-        db.collection(col).insertMany(docs, (err, res) => {
+        db.collection(col).drop(col, (err) => {
             if (err) {
                 reject(err)
             } else {
-                console.log(`Successfully inserted ${docs.length} ${col}.`)
-                fulfill(db, res)
+                db.collection(col).insertMany(docs, (err, res) => {
+                    if (err) {
+                        reject(err)
+                    } else {
+                        console.log(`Successfully inserted ${docs.length} ${col}.`)
+                        fulfill(db, res)
+                    }
+                })
             }
         })
     })
@@ -27,6 +34,7 @@ MongoClient.connect(MONGO_URL, (err, db) => {
         .then(insertMany('companies', companies))
         .then(insertMany('experience', experience))
         .then(insertMany('experience_points', expPoints))
+        .then(insertMany('skills', skills))
         .then(db => db.close())
         .catch(err => console.log(err))
 })

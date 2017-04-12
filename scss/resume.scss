@@ -53,3 +53,15 @@
         padding-left: 1rem;
     }
 }
+
+@media screen and (max-device-width: 600px) {
+    .resume-content {
+        grid-template-columns: auto;
+        grid-template-areas: "experience"
+                             "skills"
+                             "languages"
+                             "software"
+                             "education"
+                             "honors";
+    }
+}

@@ -10,7 +10,7 @@
     display: grid;
     grid-template-areas: "education experience"
                              "languages experience"
-                             "software experience";
+                             "software skills";
     grid-template-columns: 1fr 2fr;
     grid-template-rows: auto;
     grid-gap: 2rem;
@@ -29,5 +29,14 @@
 
     .experience {
         grid-area: experience
+    }
+
+    .skills {
+        grid-area: skills
+    }
+
+    .skill {
+        padding-left: 1rem;
+        text-indent: -1rem;
     }
 }

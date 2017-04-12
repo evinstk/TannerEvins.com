@@ -31,8 +31,9 @@ viewRoutes.forEach(route => {
                     findKnownSoftware(db),
                     findCompanies(db),
                     findExperience(db),
-                    findExpPoints(db)
-                ]).then(([languages, software, companies, experience, expPoints]) => {
+                    findExpPoints(db),
+                    findSkills(db)
+                ]).then(([languages, software, companies, experience, expPoints, skills]) => {
                     db.close()
                     console.log(expPoints)
                     const { html, state } = makeStateAndHTML({
@@ -41,7 +42,8 @@ viewRoutes.forEach(route => {
                             software,
                             companies,
                             experience,
-                            expPoints
+                            expPoints,
+                            skills
                         }
                     }, props)
                     res.send(renderPage(html, state))
@@ -87,6 +89,7 @@ const findKnownSoftware = makeFinder('software')({ known: true })
 const findCompanies = makeFinder('companies')()
 const findExperience = makeFinder('experience')()
 const findExpPoints = makeFinder('experience_points')()
+const findSkills = makeFinder('skills')()
 
 const makeStateAndHTML = (initialState, matchProps) => {
     const store = createStore(rootReducer, initialState)

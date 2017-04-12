@@ -20,10 +20,11 @@ const Resume = connect(
                                      exp={e}
                                      company={entities.companies[e.company]}
                                      points={filter(p => p.experience === e._id)(entities.expPoints)}
-                                   />))(entities.experience)
+                                   />))(entities.experience),
+        skills: map(s => <div className="skill">{s.skill}</div>)(entities.skills)
     })
 )(
-    ({ languages, software, experiences }) => (
+    ({ languages, software, experiences, skills }) => (
       <div className="resume">
         <div className="resume-content">
           <ShadowSection className="education" title="Education">
@@ -35,6 +36,7 @@ const Resume = connect(
           <ShadowSection className="languages" title="Languages"><ul>{languages}</ul></ShadowSection>
           <ShadowSection className="software" title="Software"><ul>{software}</ul></ShadowSection>
           <ShadowSection className="experience" title="Experience"><div>{experiences}</div></ShadowSection>
+          <ShadowSection className="skills" title="Skills, Knowledge, and Values"><div>{skills}</div></ShadowSection>
         </div>
       </div>
     )

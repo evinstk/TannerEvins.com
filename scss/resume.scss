@@ -8,11 +8,16 @@
 
 .resume-content {
     display: grid;
-    grid-template-areas: "languages experience"
+    grid-template-areas: "education experience"
+                             "languages experience"
                              "software experience";
     grid-template-columns: 1fr 2fr;
     grid-template-rows: auto;
     grid-gap: 2rem;
+
+    .education {
+        grid-area: education
+    }
 
     .languages {
         grid-area: languages

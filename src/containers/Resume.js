@@ -44,8 +44,13 @@ const Resume = connect(
 )(
     ({ languages, software, experiences }) => (
       <div className="resume">
-        <div className="name">Tanner Evins</div>
         <div className="resume-content">
+          <ShadowSection className="education" title="Education">
+            <div>
+              Rhodes College<br />
+              BA in Philosophy, 3.69 GPA
+            </div>
+          </ShadowSection>
           <ShadowSection className="languages" title="Languages"><ul>{languages}</ul></ShadowSection>
           <ShadowSection className="software" title="Software"><ul>{software}</ul></ShadowSection>
           <ShadowSection className="experience" title="Experience"><div>{experiences}</div></ShadowSection>

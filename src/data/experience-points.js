@@ -13,7 +13,7 @@ export default [
         point: `
           Introduced modern technologies and approaches to
           front-end development: Powered DMS with AngularJS,
-          delivering a level of interactivity unprecedneted in the
+          delivering a level of interactivity unprecedented in the
           postal world.
         `,
         order: 1

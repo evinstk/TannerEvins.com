@@ -5,3 +5,24 @@
     }
 
 }
+
+.resume-content {
+    display: grid;
+    grid-template-areas: "languages experience"
+                             "software experience";
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: auto;
+    grid-gap: 2rem;
+
+    .languages {
+        grid-area: languages
+    }
+
+    .software {
+        grid-area: software
+    }
+
+    .experience {
+        grid-area: experience
+    }
+}

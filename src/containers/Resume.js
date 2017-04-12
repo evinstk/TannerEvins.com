@@ -1,5 +1,5 @@
 import React from 'react'
-import Section from '../components/CollapsibleSection'
+import ShadowSection from '../components/ShadowSection'
 import { connect } from 'react-redux'
 import filter from 'lodash/fp/filter'
 import map from 'lodash/fp/map'
@@ -45,10 +45,10 @@ const Resume = connect(
     ({ languages, software, experiences }) => (
       <div className="resume">
         <div className="name">Tanner Evins</div>
-        <div>
-          <Section title="Languages"><ul>{languages}</ul></Section>
-          <Section title="Software"><ul>{software}</ul></Section>
-          <Section title="Experience"><div>{experiences}</div></Section>
+        <div className="resume-content">
+          <ShadowSection className="languages" title="Languages"><ul>{languages}</ul></ShadowSection>
+          <ShadowSection className="software" title="Software"><ul>{software}</ul></ShadowSection>
+          <ShadowSection className="experience" title="Experience"><div>{experiences}</div></ShadowSection>
         </div>
       </div>
     )

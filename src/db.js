@@ -1,6 +1,5 @@
-const MongoClient = require('mongodb').MongoClient
-
-const URL = 'mongodb://localhost:27017/website'
+import { MongoClient } from 'mongodb'
+import { MONGO_URL } from './constants'
 
 const insertLanguages = db => {
     const docs = [
@@ -101,7 +100,7 @@ const insertExperience = db => {
     })
 }
 
-MongoClient.connect(URL, (err, db) => {
+MongoClient.connect(MONGO_URL, (err, db) => {
     if (err) throw err
 
     insertLanguages(db)

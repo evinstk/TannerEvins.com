@@ -49,7 +49,7 @@ viewRoutes.forEach(route => {
                     )
                     res.send(renderPage(html, state))
                 })
-            }, (err) => {
+            }, err => {
                 res.status(500)
                 console.error(err)
                 res.send('An error occurred on the server.')

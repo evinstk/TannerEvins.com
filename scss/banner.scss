@@ -24,9 +24,14 @@
         text-decoration: none;
         display: inline-block;
         padding: 20px;
+        text-transform: uppercase;
     }
 
-    a:hover {
+    a:hover, .active {
         background: $hover-color;
+    }
+
+    .active {
+        font-weight: bold;
     }
 }

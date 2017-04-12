@@ -30,15 +30,18 @@ viewRoutes.forEach(route => {
                     findKnownLanguages(db),
                     findKnownSoftware(db),
                     findCompanies(db),
-                    findExperience(db)
-                ]).then(([languages, software, companies, experience]) => {
+                    findExperience(db),
+                    findExpPoints(db)
+                ]).then(([languages, software, companies, experience, expPoints]) => {
                     db.close()
+                    console.log(expPoints)
                     const { html, state } = makeStateAndHTML({
                         entities: {
                             languages,
                             software,
                             companies,
-                            experience
+                            experience,
+                            expPoints
                         }
                     }, props)
                     res.send(renderPage(html, state))
@@ -83,6 +86,7 @@ const findKnownLanguages = makeFinder('languages')({ known: true })
 const findKnownSoftware = makeFinder('software')({ known: true })
 const findCompanies = makeFinder('companies')()
 const findExperience = makeFinder('experience')()
+const findExpPoints = makeFinder('experience_points')()
 
 const makeStateAndHTML = (initialState, matchProps) => {
     const store = createStore(rootReducer, initialState)

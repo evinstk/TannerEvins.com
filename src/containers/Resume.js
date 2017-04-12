@@ -9,7 +9,7 @@ import sortBy from 'lodash/fp/sortBy'
 const makeSkillLis = flow(filter(l => l.known),
                           map(l => <li key={l._id}>{l.name}</li>))
 
-const Experience = ({ exp, company }) => {
+const Experience = ({ exp, company, points }) => {
     if (exp.company !== company._id) {
         throw new Error('Non-matching experience and company records.')
     }
@@ -30,6 +30,7 @@ const Experience = ({ exp, company }) => {
       <div>
         <div>{company.name}</div>
         <div>{startMonth}/{startYear} &ndash; {end ? endMonth+'/'+endYear : 'Present'}</div>
+        {map(p => <div key={p._id}>{p.point}</div>)(points)}
       </div>
     )
 }
@@ -39,7 +40,12 @@ const Resume = connect(
         languages: makeSkillLis(entities.languages),
         software: makeSkillLis(entities.software),
         experiences: flow(sortBy(e => -e.start),
-                          map(e => <Experience key={e._id} exp={e} company={entities.companies[e.company]} />))(entities.experience)
+                          map(e => <Experience
+                                     key={e._id}
+                                     exp={e}
+                                     company={entities.companies[e.company]}
+                                     points={filter(p => p.experience === e._id)(entities.expPoints)}
+                                   />))(entities.experience)
     })
 )(
     ({ languages, software, experiences }) => (

@@ -7,6 +7,8 @@ const sourcemaps = require('gulp-sourcemaps')
 const es         = require('event-stream')
 const gutil      = require('gulp-util')
 const sass       = require('gulp-sass')
+const uglify     = require('gulp-uglify')
+const process    = require('process')
 
 gulp.task('default', () => {
     const files = [
@@ -29,6 +31,8 @@ gulp.task('default', () => {
             .pipe(source(entry))
             .pipe(buffer())
             .pipe(sourcemaps.init({ loadMaps: true }))
+                .pipe(process.env.NODE_ENV === 'production' ? uglify() : gutil.noop())
+                .on('error', gutil.log)
             .pipe(sourcemaps.write('./'))
             .pipe(gulp.dest('./public/'))
     })

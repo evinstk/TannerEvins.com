@@ -36,7 +36,6 @@ viewRoutes.forEach(route => {
                     findHonors(db)
                 ]).then(([languages, software, companies, experience, expPoints, skills, honors]) => {
                     db.close()
-                    console.log(expPoints)
                     const { html, state } = makeStateAndHTML({
                         entities: {
                             languages,

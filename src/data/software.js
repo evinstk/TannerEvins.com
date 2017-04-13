@@ -6,7 +6,6 @@ export default [
     { _id: 'flux', name: 'Flux' },
     { _id: 'lodash', name: 'Lodash' },
     { _id: 'express', name: 'Express' },
-    { _id: 'css3', name: 'CSS3' },
     { _id: 'sass', name: 'Sass' },
     { _id: 'gulp', name: 'Gulp' },
     { _id: 'browserify', name: 'Browserify' },

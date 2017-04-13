@@ -7,6 +7,7 @@ export default [
     { _id: 'haskell', name: 'Haskell' },
     { _id: 'scala', name: 'Scala' },
     { _id: 'clojure', name: 'Clojure' },
+    { _id: 'css3', name: 'CSS3' },
     { _id: 'sql', name: 'SQL' }
 ].map(lang => {
     lang.known = true

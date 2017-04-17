@@ -2,7 +2,7 @@ import React from 'react'
 import map from 'lodash/fp/map'
 
 const Experience = ({ exp, company, points }) => {
-    if (exp.company !== company._id) {
+    if (company && exp.company !== company._id) {
         throw new Error('Non-matching experience and company records.')
     }
 
@@ -20,9 +20,9 @@ const Experience = ({ exp, company, points }) => {
 
     return (
       <div className="experience">
-        <div className="full-position"><span className="position">{exp.position}</span> at {company.name}</div>
+        <div className="full-position"><span className="position">{exp.position}</span>{company && ` at ${company.name}`}</div>
         <div className="years">
-          {startMonth}/{startYear} &ndash; {end ? endMonth+'/'+endYear : 'Present'}
+          {startMonth}/{startYear} &ndash; {end ? endMonth+'/'+endYear : 'Present'} | {exp.location}
         </div>
         <div className="points">
           {map(p => <div className="point" key={p._id}>{p.point}</div>)(points)}

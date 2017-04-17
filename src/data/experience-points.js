@@ -34,5 +34,13 @@ export default [
           the tool's more advanced features.
         `,
         order: 1
+    },
+    {
+        experience: 'free',
+        point: `
+          Self-employed as a freelance web developer. Currently
+          accepting contracts.
+        `,
+        order: 0
     }
 ]

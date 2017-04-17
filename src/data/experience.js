@@ -13,6 +13,13 @@ export default [
         location: 'Dallas, TX',
         position: 'IT Developer',
         start: new Date(2015, 9),
+        end: new Date(2017, 4)
+    },
+    {
+        _id: 'free',
+        location: 'Nashville, TN',
+        position: 'Freelancer Developer',
+        start: new Date(2017, 4),
         end: null
     }
 ]

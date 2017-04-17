@@ -18,7 +18,7 @@ export default [
     {
         _id: 'free',
         location: 'Nashville, TN',
-        position: 'Freelancer Developer',
+        position: 'Freelance Developer',
         start: new Date(2017, 4),
         end: null
     }

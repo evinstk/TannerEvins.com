@@ -25,24 +25,24 @@ const Welcome = () => (
 )
 
 const ServerErrorMessage = () => (
-    <p>
-      Sorry, an error occurred on the server. Please refresh your
-      browser.  If the problem persists, try again later.
-    </p>
+  <p>
+    Sorry, an error occurred on the server. Please refresh your
+    browser.  If the problem persists, try again later.
+  </p>
 )
 
 const App = connect(
-    ({ serverError }) => ({ serverError })
+  ({ serverError }) => ({ serverError })
 )(
-    ({ children, serverError }) => {
-        const content = serverError ? <ServerErrorMessage /> : (children || <Welcome />)
-        return (
-            <div>
-              <Banner />
-              <div className="main-content">{content}</div>
-            </div>
-        )
-    }
+  ({ children, serverError }) => {
+    const content = serverError ? <ServerErrorMessage /> : (children || <Welcome />)
+    return (
+      <div>
+        <Banner />
+        <div className="main-content">{content}</div>
+      </div>
+    )
+  }
 )
 
 export default App

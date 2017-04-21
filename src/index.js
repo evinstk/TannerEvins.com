@@ -23,66 +23,66 @@ app.use(express.static(PUBLIC))
 
 const viewRoutes = ['/', '/resume']
 viewRoutes.forEach(route => {
-    app.get(route, (req, res) => {
-        match({ routes, location: req.url }, (err, redirect, props) => {
-            connectDB().then(db => {
-                Promise.all([
-                    findKnownLanguages(db),
-                    findKnownSoftware(db),
-                    findCompanies(db),
-                    findExperience(db),
-                    findExpPoints(db),
-                    findSkills(db),
-                    findHonors(db)
-                ]).then(([languages, software, companies, experience, expPoints, skills, honors]) => {
-                    db.close()
-                    const { html, state } = makeStateAndHTML({
-                        entities: {
-                            languages,
-                            software,
-                            companies,
-                            experience,
-                            expPoints,
-                            skills,
-                            honors
-                        }
-                    }, props)
-                    res.send(renderPage(html, state))
-                })
-            }, err => {
-                console.error(err)
-                const { html, state } = makeStateAndHTML({
-                    serverError: 'db'
-                }, props)
-                res.status(500)
-                res.send(renderPage(html, state))
-            })
+  app.get(route, (req, res) => {
+    match({ routes, location: req.url }, (err, redirect, props) => {
+      connectDB().then(db => {
+        Promise.all([
+          findKnownLanguages(db),
+          findKnownSoftware(db),
+          findCompanies(db),
+          findExperience(db),
+          findExpPoints(db),
+          findSkills(db),
+          findHonors(db)
+        ]).then(([languages, software, companies, experience, expPoints, skills, honors]) => {
+          db.close()
+          const { html, state } = makeStateAndHTML({
+            entities: {
+              languages,
+              software,
+              companies,
+              experience,
+              expPoints,
+              skills,
+              honors
+            }
+          }, props)
+          res.send(renderPage(html, state))
         })
+      }, err => {
+        console.error(err)
+        const { html, state } = makeStateAndHTML({
+          serverError: 'db'
+        }, props)
+        res.status(500)
+        res.send(renderPage(html, state))
+      })
     })
+  })
 })
 
 const connectDB = () => {
-    return new Promise((fulfill, reject) => {
-        MongoClient.connect(MONGO_URL, (err, db) => {
-            if (err) {
-                reject(err)
-            } else {
-                fulfill(db)
-            }
-        })
+  return new Promise((fulfill, reject) => {
+    MongoClient.connect(MONGO_URL, (err, db) => {
+      if (err) {
+        reject(err)
+      } else {
+        fulfill(db)
+      }
     })
+  })
 }
 
 const makeFinder = col => (query = {}) => db => (
-    new Promise((fulfill, reject) => {
-        db.collection(col).find(query).toArray((err, docs) => {
-            if (err) {
-                reject(err)
-            } else {
-                fulfill(keyBy('_id')(docs))
-            }
-        })
+  new Promise((fulfill, reject) => {
+    db.collection(col).find(query).toArray((err, docs) => {
+      if (err) {
+        reject(err)
+      } else {
+        fulfill(keyBy('_id')(docs))
+      }
     })
+  })
 )
 
 const findKnownLanguages = makeFinder('languages')({ known: true })
@@ -94,14 +94,14 @@ const findSkills = makeFinder('skills')()
 const findHonors = makeFinder('honors')()
 
 const makeStateAndHTML = (initialState, matchProps) => {
-    const store = createStore(rootReducer, initialState)
-    const state = store.getState()
-    const html = renderToString(
-        <Provider store={store}>
-          <RouterContext {...matchProps} />
-        </Provider>
-    )
-    return { state, html }
+  const store = createStore(rootReducer, initialState)
+  const state = store.getState()
+  const html = renderToString(
+    <Provider store={store}>
+      <RouterContext {...matchProps} />
+    </Provider>
+  )
+  return { state, html }
 }
 
 const renderPage = (html, preloadedState) => `

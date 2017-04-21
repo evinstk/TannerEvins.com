@@ -11,6 +11,6 @@ const store = configureStore(preloadedState)
 const history = syncHistoryWithStore(browserHistory, store)
 
 ReactDOM.render(
-    <Root store={store} history={history} />,
-    document.getElementById('root')
+  <Root store={store} history={history} />,
+  document.getElementById('root')
 )

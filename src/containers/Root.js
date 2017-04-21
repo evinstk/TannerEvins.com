@@ -4,9 +4,9 @@ import { Router } from 'react-router'
 import routes from '../routes'
 
 const Root = props => (
-    <Provider store={props.store}>
-    	<Router history={props.history} routes={routes} />
-    </Provider>
+  <Provider store={props.store}>
+    <Router history={props.history} routes={routes} />
+  </Provider>
 )
 
 export default Root

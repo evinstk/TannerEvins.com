@@ -29,6 +29,7 @@
     "gulp-sourcemaps": "^2.5.1",
     "gulp-uglify": "^2.1.2",
     "gulp-util": "^3.0.8",
+    "moment": "^2.18.1",
     "mongodb": "^2.2.25",
     "pug": "^2.0.0-beta11",
     "react": "^15.4.2",

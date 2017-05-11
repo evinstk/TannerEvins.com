@@ -21,11 +21,18 @@ export default [
   {
     experience: 'exp',
     point: `
-      Created revamped performance management review software
-      for company's HR website, highly praised by clients as a
-      vast improvement over the original system.
+      Created revamped performance management review software for
+      company's HR website, highly praised by clients as a vast
+      improvement over the original system.
     `,
     order: 0
+  },
+  {
+    experience: 'exp',
+    point: `
+      Wrote both C# and JavaScript code.
+    `,
+    order: 1
   },
   {
     experience: 'exp',
@@ -33,7 +40,7 @@ export default [
       Git expert of the development team, often consulted for
       the tool's more advanced features.
     `,
-    order: 1
+    order: 2
   },
   {
     experience: 'dr',

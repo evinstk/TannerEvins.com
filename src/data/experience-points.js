@@ -36,6 +36,13 @@ export default [
     order: 1
   },
   {
+    experience: 'dr',
+    point: `
+      Using Angular 4 and Ionic framework to create the Dave Ramsey
+      Show app on iOS and Android.
+    `
+  },
+  {
     experience: 'free',
     point: `
       Self-employed as a freelance web developer. Currently

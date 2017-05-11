@@ -16,10 +16,18 @@ export default [
     end: new Date(2017, 4)
   },
   {
-    _id: 'free',
+    _id: 'dr',
+    company: 'dr',
     location: 'Nashville, TN',
-    position: 'Freelance Developer',
-    start: new Date(2017, 4),
+    position: 'Independent Contractor',
+    start: new Date(2017, 5),
     end: null
   }
+  //{
+  //  _id: 'free',
+  //  location: 'Nashville, TN',
+  //  position: 'Freelance Developer',
+  //  start: new Date(2017, 4),
+  //  end: null
+  //}
 ]

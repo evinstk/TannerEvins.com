@@ -9,8 +9,8 @@ const Experience = ({ exp, company, points }) => {
     throw new Error('Non-matching experience and company records.')
   }
 
-  const start = moment.utc(exp.start);
-  const end = exp.end && moment.utc(exp.end);
+  const start = moment(exp.start);
+  const end = exp.end && moment(exp.end);
 
   return (
     <div className="experience">

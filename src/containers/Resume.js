@@ -11,6 +11,17 @@ import sortBy from 'lodash/fp/sortBy'
 const makeSkillLis = flow(filter(l => l.known),
                           map(l => <li key={l._id}>{l.name}</li>))
 
+const ExpTitle = () => (
+  <div className="experience-title">
+    <div>Experience</div>
+    <div>
+      <button title="PDF Version">
+        <a href="docs/evins-resume.pdf"><i className="material-icons">print</i></a>
+      </button>
+    </div>
+  </div>
+)
+
 const Resume = connect(
   ({ entities }) => ({
     languages: makeSkillLis(entities.languages),
@@ -37,14 +48,9 @@ const Resume = connect(
         </ShadowSection>
         <ShadowSection className="languages" title="Languages"><ul>{languages}</ul></ShadowSection>
         <ShadowSection className="software" title="Software"><ul>{software}</ul></ShadowSection>
-        <ShadowSection className="experience" title="Experience"><div>{experiences}</div></ShadowSection>
+        <ShadowSection className="experience" title={<ExpTitle />}><div>{experiences}</div></ShadowSection>
         <ShadowSection className="skills" title="Skills, Knowledge, and Values"><div>{skills}</div></ShadowSection>
         <ShadowSection className="honors" title="Honors"><div>{honors}</div></ShadowSection>
-        <div className="actions">
-          <button title="PDF Version">
-            <a href="docs/evins-resume.pdf"><i className="material-icons">print</i></a>
-          </button>
-        </div>
       </div>
     </div>
   )

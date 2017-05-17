@@ -8,11 +8,11 @@
 
 .resume-content {
     display: grid;
-    grid-template-areas: "education experience actions"
-                           "languages experience actions"
-                           "software skills actions"
-                           "software honors actions";
-    grid-template-columns: 1fr 3fr 0.2fr;
+    grid-template-areas: "education experience"
+                           "languages experience"
+                           "software skills"
+                           "software honors";
+    grid-template-columns: 1fr 3fr;
     grid-template-rows: auto;
     grid-gap: 2rem;
 
@@ -30,6 +30,11 @@
 
     .experience {
         grid-area: experience;
+    }
+
+    .experience-title {
+      display: flex;
+      justify-content: space-between;
     }
 
     .skills {
@@ -51,10 +56,6 @@
 
     .honor-content {
         padding-left: 1rem;
-    }
-
-    .actions {
-      grid-area: actions;
     }
 }
 

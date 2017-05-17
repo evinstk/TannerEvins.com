@@ -10,7 +10,7 @@ const ShadowSection = ({ title, children, className }) => (
 )
 
 ShadowSection.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: PropTypes.any.isRequired,
   children: PropTypes.element.isRequired,
   className: PropTypes.string
 }

@@ -40,6 +40,11 @@ const Resume = connect(
         <ShadowSection className="experience" title="Experience"><div>{experiences}</div></ShadowSection>
         <ShadowSection className="skills" title="Skills, Knowledge, and Values"><div>{skills}</div></ShadowSection>
         <ShadowSection className="honors" title="Honors"><div>{honors}</div></ShadowSection>
+        <div className="actions">
+          <button title="PDF Version">
+            <a href="docs/evins-resume.pdf"><i className="material-icons">print</i></a>
+          </button>
+        </div>
       </div>
     </div>
   )

@@ -8,11 +8,11 @@
 
 .resume-content {
     display: grid;
-    grid-template-areas: "education experience"
-                             "languages experience"
-                             "software skills"
-                             "software honors";
-    grid-template-columns: 1fr 3fr;
+    grid-template-areas: "education experience actions"
+                           "languages experience actions"
+                           "software skills actions"
+                           "software honors actions";
+    grid-template-columns: 1fr 3fr 0.2fr;
     grid-template-rows: auto;
     grid-gap: 2rem;
 
@@ -52,12 +52,17 @@
     .honor-content {
         padding-left: 1rem;
     }
+
+    .actions {
+      grid-area: actions;
+    }
 }
 
 @media screen and (max-device-width: 600px) {
     .resume-content {
         grid-template-columns: auto;
-        grid-template-areas: "experience"
+        grid-template-areas: "actions"
+                             "experience"
                              "skills"
                              "languages"
                              "software"

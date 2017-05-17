@@ -110,6 +110,7 @@ const renderPage = (html, preloadedState) => `
   <head>
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
     <link rel="icon" sizes="32x32" type="imag/png" href="favicon.png" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="css/base.css" />
     <title>TannerEvins.com</title>
   </head>

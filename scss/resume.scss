@@ -1,73 +1,73 @@
 .resume {
 
-    .name {
-        font-size: 2em;
-    }
+  .name {
+    font-size: 2em;
+  }
 
 }
 
 .resume-content {
-    display: grid;
-    grid-template-areas: "education experience"
-                           "languages experience"
-                           "software skills"
-                           "software honors";
-    grid-template-columns: 1fr 3fr;
-    grid-template-rows: auto;
-    grid-gap: 2rem;
+  display: grid;
+  grid-template-areas: "education experience"
+                         "languages experience"
+                         "software skills"
+                         "software honors";
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: auto;
+  grid-gap: 2rem;
 
-    .education {
-        grid-area: education;
-    }
+  .education {
+    grid-area: education;
+  }
 
-    .languages {
-        grid-area: languages;
-    }
+  .languages {
+    grid-area: languages;
+  }
 
-    .software {
-        grid-area: software;
-    }
+  .software {
+    grid-area: software;
+  }
 
-    .experience {
-        grid-area: experience;
-    }
+  .experience {
+    grid-area: experience;
+  }
 
-    .experience-title {
-      display: flex;
-      justify-content: space-between;
-    }
+  .experience-title {
+    display: flex;
+    justify-content: space-between;
+  }
 
-    .skills {
-        grid-area: skills;
-    }
+  .skills {
+    grid-area: skills;
+  }
 
-    .skill {
-        padding-left: 1rem;
-        text-indent: -1rem;
-    }
+  .skill {
+    padding-left: 1rem;
+    text-indent: -1rem;
+  }
 
-    .honors {
-        grid-area: honors;
-    }
+  .honors {
+    grid-area: honors;
+  }
 
-    .honor-title {
-        font-weight: bold;
-    }
+  .honor-title {
+    font-weight: bold;
+  }
 
-    .honor-content {
-        padding-left: 1rem;
-    }
+  .honor-content {
+    padding-left: 1rem;
+  }
 }
 
 @media screen and (max-device-width: 600px) {
-    .resume-content {
-        grid-template-columns: auto;
-        grid-template-areas: "actions"
-                             "experience"
-                             "skills"
-                             "languages"
-                             "software"
-                             "education"
-                             "honors";
-    }
+  .resume-content {
+    grid-template-columns: auto;
+    grid-template-areas: "actions"
+                           "experience"
+                           "skills"
+                           "languages"
+                           "software"
+                           "education"
+                           "honors";
+  }
 }

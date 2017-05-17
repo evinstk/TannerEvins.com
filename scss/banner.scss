@@ -1,37 +1,37 @@
 .banner {
-    display: flex;
-    align-items: center;
-    box-shadow: 0 1px 10px $shadow-color;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 1px 10px $shadow-color;
 }
 
 .logo {
-    text-decoration: none;
-    font-size: 2rem;
-    font-family: Harry, $font-stack;
-    font-weight: bold;
-    color: $text-color-bold;
-    padding: 7px 20px;
+  text-decoration: none;
+  font-size: 2rem;
+  font-family: Harry, $font-stack;
+  font-weight: bold;
+  color: $text-color-bold;
+  padding: 7px 20px;
 }
 
 .site-nav {
-    margin-left: 200px;
+  margin-left: 200px;
+  
+  ul {
+    display: flex;
+  }
+  
+  a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 20px;
+    text-transform: uppercase;
+  }
 
-    ul {
-        display: flex;
-    }
+  a:hover, .active {
+    background: $hover-color;
+  }
 
-    a {
-        text-decoration: none;
-        display: inline-block;
-        padding: 20px;
-        text-transform: uppercase;
-    }
-
-    a:hover, .active {
-        background: $hover-color;
-    }
-
-    .active {
-        font-weight: bold;
-    }
+  .active {
+    font-weight: bold;
+  }
 }

@@ -1,28 +1,28 @@
 .collapsible-section {
 
-    .title {
-        color: $primary-color;
-        text-transform: lowercase;
-        font-variant: small-caps;
-        font-weight: bold;
-        font-size: 2em;
-        cursor: pointer
+  .title {
+    color: $primary-color;
+    text-transform: lowercase;
+    font-variant: small-caps;
+    font-weight: bold;
+    font-size: 2em;
+    cursor: pointer
+  }
+
+  .content {
+    animation: slidein 0.2s ease 1;
+  }
+
+  @keyframes slidein {
+    from {
+      margin-left: 10px;
+      opacity: 0;
     }
 
-    .content {
-        animation: slidein 0.2s ease 1;
+    to {
+      margin-left: 0;
+      opacity: 1;
     }
-
-    @keyframes slidein {
-        from {
-            margin-left: 10px;
-            opacity: 0;
-        }
-
-        to {
-            margin-left: 0;
-            opacity: 1;
-        }
-    }
+  }
 
 }

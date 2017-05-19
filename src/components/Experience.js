@@ -1,6 +1,6 @@
 import React from 'react'
 import map from 'lodash/fp/map'
-import moment from 'moment'
+import moment from 'moment-timezone'
 
 const FORMAT = 'M/YYYY';
 
@@ -9,8 +9,8 @@ const Experience = ({ exp, company, points }) => {
     throw new Error('Non-matching experience and company records.')
   }
 
-  const start = moment(exp.start);
-  const end = exp.end && moment(exp.end);
+  const start = moment.tz(exp.start, 'Zulu');
+  const end = exp.end && moment.tz(exp.end, 'Zulu');
 
   return (
     <div className="experience">

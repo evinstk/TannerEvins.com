@@ -4,23 +4,23 @@ export default [
     company: 'ecs',
     location: 'Memphis, TN',
     position: 'Front-end Developer',
-    start: '2013-01-01',
-    end: '2015-09-01'
+    start: '2013-01-01T00:00:00.000Z',
+    end: '2015-09-01T00:00:00.000Z'
   },
   {
     _id: 'exp',
     company: 'exp',
     location: 'Dallas, TX',
     position: 'IT Developer',
-    start: '2015-09-01',
-    end: '2017-04-28'
+    start: '2015-09-01T00:00:00.000Z',
+    end: '2017-04-28T00:00:00.000Z'
   },
   {
     _id: 'dr',
     company: 'dr',
     location: 'Nashville, TN',
     position: 'Independent Contractor',
-    start: '2017-05-01',
+    start: '2017-05-01T00:00:00.000Z',
     end: null
   }
   //{

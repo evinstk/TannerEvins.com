@@ -13,7 +13,7 @@ const Welcome = () => (
       </div>
       <div className="center">
         <div className="site-name">TannerEvins.com</div>
-        <div className="description">Front-end & UX</div>
+        <div className="description">Front-end Web Development</div>
         <div className="social">
           <SocialIcon color={iconColor} url="https://www.linkedin.com/in/tanner-evins-30770741/" />
           <SocialIcon color={iconColor} url="https://github.com/evinstk" />

@@ -19,8 +19,16 @@ export default [
     _id: 'dr',
     company: 'dr',
     location: 'Nashville, TN',
-    position: 'Independent Contractor',
+    position: 'Contractor for Simply People LLC',
     start: '2017-05-01T00:00:00.000Z',
+    end: '2017-06-30T00:00:00.000Z'
+  },
+  {
+    _id: 's3',
+    company: 's3',
+    location: 'Columbia, TN',
+    position: 'Full-Stack Developer',
+    start: '2017-07-05T00:00:00.000Z',
     end: null
   }
   //{

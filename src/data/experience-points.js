@@ -45,8 +45,16 @@ export default [
   {
     experience: 'dr',
     point: `
-      Using Angular 4 and Ionic framework to create the Dave Ramsey
+      Used Angular 4 and Ionic framework to create the Dave Ramsey
       Show app on iOS and Android.
+    `
+  },
+  {
+    experience: 's3',
+    point: `
+      Using React and Redux to create software used by customer
+      service reps to resupply durable medical equipment for patients
+      suffering from sleep-related issues (e.g., sleep apnea).
     `
   },
   {

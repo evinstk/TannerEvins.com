@@ -8,4 +8,4 @@ export default [
     alias: 'International Honor Society in Philosophy',
     position: 'President'
   }
-]
+].map((honor, _id) => ({ ...honor, _id }))

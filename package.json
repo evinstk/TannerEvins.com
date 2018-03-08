@@ -30,7 +30,6 @@
     "gulp-uglify": "^2.1.2",
     "gulp-util": "^3.0.8",
     "moment-timezone": "^0.5.13",
-    "mongodb": "^2.2.25",
     "pug": "^2.0.0-beta11",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",

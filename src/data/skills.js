@@ -27,4 +27,4 @@ export default [
       facilitate efficient development.
     `
   }
-]
+].map((skill, _id) => ({ ...skill, _id }))

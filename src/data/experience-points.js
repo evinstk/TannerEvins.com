@@ -65,4 +65,4 @@ export default [
     `,
     order: 0
   }
-]
+].map((point, _id) => ({ ...point, _id }))

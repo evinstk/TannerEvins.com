@@ -10,9 +10,20 @@ import rootReducer from './reducers'
 import { match, RouterContext } from 'react-router'
 import routes from './routes'
 import React from 'react'
-import { MongoClient } from 'mongodb'
-import { MONGO_URL } from './constants'
 import keyBy from 'lodash/fp/keyBy'
+import mapValues from 'lodash/fp/mapValues'
+import {
+  companies,
+  experience,
+  expPoints,
+  honors,
+  languages,
+  skills,
+  software
+} from './data'
+
+const keyById = keyBy('_id')
+const mapKeyById = mapValues(keyById)
 
 const DEV_PORT = 3000
 const PUBLIC = path.join(__dirname, '..', 'public')
@@ -25,73 +36,21 @@ const viewRoutes = ['/', '/resume']
 viewRoutes.forEach(route => {
   app.get(route, (req, res) => {
     match({ routes, location: req.url }, (err, redirect, props) => {
-      connectDB().then(db => {
-        Promise.all([
-          findKnownLanguages(db),
-          findKnownSoftware(db),
-          findCompanies(db),
-          findExperience(db),
-          findExpPoints(db),
-          findSkills(db),
-          findHonors(db)
-        ]).then(([languages, software, companies, experience, expPoints, skills, honors]) => {
-          db.close()
-          const { html, state } = makeStateAndHTML({
-            entities: {
-              languages,
-              software,
-              companies,
-              experience,
-              expPoints,
-              skills,
-              honors
-            }
-          }, props)
-          res.send(renderPage(html, state))
+      const { html, state } = makeStateAndHTML({
+        entities: mapKeyById({
+          companies,
+          experience,
+          expPoints,
+          honors,
+          languages,
+          skills,
+          software
         })
-      }, err => {
-        console.error(err)
-        const { html, state } = makeStateAndHTML({
-          serverError: 'db'
-        }, props)
-        res.status(500)
-        res.send(renderPage(html, state))
-      })
+      }, props)
+      res.send(renderPage(html, state))
     })
   })
 })
-
-const connectDB = () => {
-  return new Promise((fulfill, reject) => {
-    MongoClient.connect(MONGO_URL, (err, db) => {
-      if (err) {
-        reject(err)
-      } else {
-        fulfill(db)
-      }
-    })
-  })
-}
-
-const makeFinder = col => (query = {}) => db => (
-  new Promise((fulfill, reject) => {
-    db.collection(col).find(query).toArray((err, docs) => {
-      if (err) {
-        reject(err)
-      } else {
-        fulfill(keyBy('_id')(docs))
-      }
-    })
-  })
-)
-
-const findKnownLanguages = makeFinder('languages')({ known: true })
-const findKnownSoftware = makeFinder('software')({ known: true })
-const findCompanies = makeFinder('companies')()
-const findExperience = makeFinder('experience')()
-const findExpPoints = makeFinder('experience_points')()
-const findSkills = makeFinder('skills')()
-const findHonors = makeFinder('honors')()
 
 const makeStateAndHTML = (initialState, matchProps) => {
   const store = createStore(rootReducer, initialState)

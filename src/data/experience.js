@@ -29,6 +29,14 @@ export default [
     location: 'Columbia, TN',
     position: 'Full-Stack Developer',
     start: '2017-07-05T00:00:00.000Z',
+    end: '2018-05-25T00:00:00.000Z'
+  },
+  {
+    _id: 'ivl',
+    company: 'ivl',
+    location: 'Nashville, TN',
+    position: 'Software Engineer',
+    start: '2017-05-29T00:00:00.000Z',
     end: null
   }
   //{

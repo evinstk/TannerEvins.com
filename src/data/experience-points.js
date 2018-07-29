@@ -52,9 +52,18 @@ export default [
   {
     experience: 's3',
     point: `
-      Using React and Redux to create software used by customer
+      Used React and Redux to create software used by customer
       service reps to resupply durable medical equipment for patients
       suffering from sleep-related issues (e.g., sleep apnea).
+    `
+  },
+  {
+    experience: 'ivl',
+    point: `
+      Developing the Your Care Steps application for patients with upcoming
+      surgeries. This application helps patients know what to expect and prepare
+      for their procedures, and it enables their caretakers to collect data to
+      ensure the best surgical outcome.
     `
   },
   {

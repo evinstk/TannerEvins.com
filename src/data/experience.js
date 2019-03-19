@@ -36,7 +36,7 @@ export default [
     company: 'ivl',
     location: 'Nashville, TN',
     position: 'Software Engineer',
-    start: '2017-05-29T00:00:00.000Z',
+    start: '2018-05-29T00:00:00.000Z',
     end: null
   }
   //{

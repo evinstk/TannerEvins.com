@@ -1,6 +1,5 @@
 import React from 'react'
-import Banner from '../components/Banner'
-import { connect } from 'react-redux'
+import Banner from './Banner'
 import { SocialIcon } from 'react-social-icons'
 
 const iconColor = '#888'
@@ -9,7 +8,7 @@ const Welcome = () => (
   <div className="welcome">
     <div className="content">
       <div className="center">
-        <img src="/apple-touch-icon.png" />
+        <img alt="logo" src="/apple-touch-icon.png" />
       </div>
       <div className="center">
         <div className="site-name">TannerEvins.com</div>
@@ -24,25 +23,13 @@ const Welcome = () => (
   </div>
 )
 
-const ServerErrorMessage = () => (
-  <p>
-    Sorry, an error occurred on the server. Please refresh your
-    browser.  If the problem persists, try again later.
-  </p>
-)
-
-const App = connect(
-  ({ serverError }) => ({ serverError })
-)(
-  ({ children, serverError }) => {
-    const content = serverError ? <ServerErrorMessage /> : (children || <Welcome />)
-    return (
-      <div>
-        <Banner />
-        <div className="main-content">{content}</div>
-      </div>
-    )
-  }
+const App = ({ children }) => (
+  <div>
+    <Banner />
+    <div className="main-content">
+      {children || <Welcome />}
+    </div>
+  </div>
 )
 
 export default App

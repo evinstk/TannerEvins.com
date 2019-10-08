@@ -1,14 +1,21 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 
-class CollapsibleSection extends Component {
-  constructor(props) {
+interface ICollapsibleSection {
+  title: string;
+  children: JSX.Element;
+}
+
+interface ICollapsibleSectionState {
+  isCollapsed: boolean;
+}
+
+class CollapsibleSection extends Component<ICollapsibleSection, ICollapsibleSectionState> {
+  constructor(props: ICollapsibleSection) {
     super(props)
     this.state = {isCollapsed: true}
-    this.toggle =this.toggle.bind(this)
   }
 
-  toggle() {
+  toggle = () => {
     this.setState(prev => ({
       isCollapsed: !prev.isCollapsed
     }))
@@ -24,11 +31,6 @@ class CollapsibleSection extends Component {
       </div>
     )
   }
-}
-
-CollapsibleSection.propTypes = {
-  title: PropTypes.string.isRequired,
-  children: PropTypes.element.isRequired
 }
 
 export default CollapsibleSection

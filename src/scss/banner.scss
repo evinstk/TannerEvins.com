@@ -15,11 +15,11 @@
 
 .site-nav {
   margin-left: 200px;
-  
+
   ul {
     display: flex;
   }
-  
+
   a {
     text-decoration: none;
     display: inline-block;
@@ -29,9 +29,5 @@
 
   a:hover, .active {
     background: $hover-color;
-  }
-
-  .active {
-    font-weight: bold;
   }
 }

@@ -13,11 +13,11 @@ import filter from 'lodash/fp/filter'
 import map from 'lodash/fp/map'
 import flow from 'lodash/fp/flow'
 import sortBy from 'lodash/fp/sortBy'
-import keyBy from 'lodash/fp/keyBy'
+import keyBy from 'lodash/keyBy'
 import PrintIcon from '@material-ui/icons/Print'
 
-const makeSkillLis = flow(filter(l => l.known),
-                          map(l => <li key={l._id}>{l.name}</li>))
+const makeSkillLis = flow(filter((l: { known: boolean }) => l.known),
+                          map((l: { _id: number, name: string }) => <li key={l._id}>{l.name}</li>))
 
 const ExpTitle = () => (
   <div className="experience-title">
@@ -30,7 +30,7 @@ const ExpTitle = () => (
   </div>
 )
 
-const companiesByKey = keyBy('_id')(companies)
+const companiesByKey = keyBy(companies, '_id')
 
 const Resume = () => (
   <div className="resume">
@@ -53,23 +53,23 @@ const Resume = () => (
       </ShadowSection>
       <ShadowSection className="experience" title={<ExpTitle />}>
         <div>
-          {flow(sortBy(e => -e.start),
-                    map(e => <Experience
+          {flow(sortBy((e: typeof experience[0]) => -e.start),
+                    map((e: typeof experience[0]) => <Experience
                           key={e._id}
                           exp={e}
                           company={companiesByKey[e.company]}
-                          points={filter(p => p.experience === e._id)(expPoints)}
+                          points={filter((p: typeof expPoints[0]) => p.experience === e._id)(expPoints)}
                         />))(experience)}
         </div>
       </ShadowSection>
       <ShadowSection className="skills" title="Skills, Knowledge, and Values">
         <div>
-          {map(s => <div className="skill" key={s._id}>{s.skill}</div>)(skills)}
+          {map((s: typeof skills[0]) => <div className="skill" key={s._id}>{s.skill}</div>)(skills)}
         </div>
       </ShadowSection>
       <ShadowSection className="honors" title="Honors">
         <div>
-          {map(h => <Honor honor={h} className="honor" key={h._id} />)(honors)}
+          {map((h: typeof honors[0]) => <Honor honor={h} className="honor" key={h._id} />)(honors)}
         </div>
       </ShadowSection>
     </div>

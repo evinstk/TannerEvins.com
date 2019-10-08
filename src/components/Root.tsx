@@ -5,7 +5,6 @@ import Resume from './Resume'
 import Banner from './Banner'
 
 const Root = () => (
-  // <Router history={browserHistory} routes={routes} />
   <BrowserRouter>
     <Banner />
     <div className="main-content">

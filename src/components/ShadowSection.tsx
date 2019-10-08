@@ -1,7 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const ShadowSection = ({ title, children, className }) => (
+const ShadowSection = ({ title, children, className }: {
+  title: JSX.Element | string,
+  children: JSX.Element,
+  className: string,
+}) => (
   <div className={`shadow-section ${className}`}>
     <div className="section-title">{title}</div>
     <div className="content">

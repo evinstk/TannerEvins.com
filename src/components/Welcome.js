@@ -1,5 +1,4 @@
 import React from 'react'
-import Banner from './Banner'
 import { SocialIcon } from 'react-social-icons'
 
 const iconColor = '#888'
@@ -23,13 +22,4 @@ const Welcome = () => (
   </div>
 )
 
-const App = ({ children }) => (
-  <div>
-    <Banner />
-    <div className="main-content">
-      {children || <Welcome />}
-    </div>
-  </div>
-)
-
-export default App
+export default Welcome

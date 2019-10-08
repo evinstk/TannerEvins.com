@@ -1,9 +1,20 @@
 import React from 'react'
-import { Router, browserHistory } from 'react-router'
-import routes from '../routes'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import Welcome from './Welcome'
+import Resume from './Resume'
+import Banner from './Banner'
 
 const Root = () => (
-  <Router history={browserHistory} routes={routes} />
+  // <Router history={browserHistory} routes={routes} />
+  <BrowserRouter>
+    <Banner />
+    <div className="main-content">
+      <Switch>
+        <Route exact path="/" component={Welcome} />
+        <Route path="/resume" component={Resume} />
+      </Switch>
+    </div>
+  </BrowserRouter>
 )
 
 export default Root

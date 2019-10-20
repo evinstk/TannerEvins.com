@@ -13,7 +13,7 @@ const Welcome = () => (
       </div>
       <div className="center">
         <div className="site-name">TannerEvins.com</div>
-        <div className="description">Front-end Web Development</div>
+        <div className="description">Full Stack Web Development</div>
         <div className="social">
           <a href="https://www.linkedin.com/in/tanner-evins-30770741/"><FaLinkedin /></a>
           <a href="https://github.com/evinstk"><FaGithub /></a>
